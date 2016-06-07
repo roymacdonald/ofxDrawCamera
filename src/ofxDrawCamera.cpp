@@ -59,7 +59,7 @@ void ofxDrawCamera::initStatics(){
         drawBox.setMode(OF_PRIMITIVE_LINES);
     }
 }
-void ofxDrawCamera::draw(ofCamera& cam){
+void ofxDrawCamera::draw(ofCamera& cam, bool bDrawCameraPosition){
     initStatics();
     ofPushMatrix();
     glMultMatrixf(cam.getGlobalTransformMatrix().getPtr());
@@ -68,6 +68,10 @@ void ofxDrawCamera::draw(ofCamera& cam){
     ofDrawLine(ofVec3f(0.0f,0.0f,-1.0f), ofVec3f(2.0f,0.0f,-1.0f));
     ofDrawLine(ofVec3f(0.0f,0.0f,-1.0f), ofVec3f(0.0f,2.0f,-1.0f));
     ofPopMatrix();
+    if (bDrawCameraPosition) {
+        cam.draw();
+    }
+    
 }
 
 

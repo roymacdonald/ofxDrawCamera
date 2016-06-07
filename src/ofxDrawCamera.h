@@ -11,7 +11,7 @@
 class ofxDrawCamera{
 public:
 //    ofxDrawCamera();
-    static void draw(ofCamera& cam);
+    static void draw(ofCamera& cam, bool bDrawCameraPosition = true);
 protected:
     static void initStatics();
     static vector<ofVec3f> vertices;
